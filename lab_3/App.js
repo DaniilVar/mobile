@@ -43,7 +43,7 @@ export default function App() {
       <Button
       onPress={takePic}
       title="Сделать фото"
-      color="yellow"/>
+      color="orange"/>
 
       {
         image &&
