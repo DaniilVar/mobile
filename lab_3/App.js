@@ -7,7 +7,10 @@ import * as MediaLibrary from 'expo-media-library';
 
 export default function App() {
   const [image, setImage] = useState(null);
-  const takePic = async () => {
+
+
+
+  const takePick = async () => {
     const hasPermissions = await askPermissions();
 
     if (!hasPermissions) {
@@ -23,7 +26,9 @@ export default function App() {
     setImage(img.uri);
   }
 
-  const savePic = async () => {
+
+
+  const savePick = async () => {
     await MediaLibrary.saveToLibraryAsync(image).catch(()=> {Alert.alert('Ошибка')});
     setImage(null);
   }
@@ -41,7 +46,7 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.text}>Инструмент обрезания фото</Text>
       <Button
-      onPress={takePic}
+      onPress={takePick}
       title="Сделать фото"
       color="orange"/>
 
@@ -50,7 +55,7 @@ export default function App() {
         <>
           <Image style={styles.image} source={{uri: image}} />
           <Button
-          onPress={savePic}
+          onPress={savePick}
           title="Сохранить"
           color="green"/>
         </>
